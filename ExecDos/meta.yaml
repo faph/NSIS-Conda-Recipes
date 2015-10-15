@@ -1,0 +1,11 @@
+package:
+  name: nsis_execdos
+  version: 1.0.1.3
+
+source:
+  fn: ExecDos.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/0/0f/ExecDos.zip
+
+requirements:
+  build: []
+  run: []
