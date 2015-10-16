@@ -1,0 +1,19 @@
+package:
+  name: uac
+  version: 0.2.4c
+
+build:
+  string: nsis_0
+
+source:
+  fn: UAC.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/8/8f/UAC.zip
+
+requirements:
+  build: []
+  run: []
+
+about:
+  summary: UAC plugin for NSIS
+  home: http://nsis.sourceforge.net/UAC_plug-in
+  license: zlib
