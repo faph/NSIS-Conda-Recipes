@@ -3,7 +3,7 @@ package:
   version: 0.2.4c
 
 build:
-  string: nsis_0
+  string: nsis_1
 
 source:
   fn: UAC.zip
@@ -11,7 +11,8 @@ source:
 
 requirements:
   build: []
-  run: []
+  run:
+  - nsis
 
 about:
   summary: UAC plugin for NSIS

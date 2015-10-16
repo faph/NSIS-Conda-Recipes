@@ -3,7 +3,7 @@ package:
   version: 1.0.1.3
 
 build:
-  string: nsis_0
+  string: nsis_1
 
 source:
   fn: ExecDos.zip
@@ -11,7 +11,8 @@ source:
 
 requirements:
   build: []
-  run: []
+  run:
+  - nsis
 
 about:
   summary: ExecDos plugin for NSIS
