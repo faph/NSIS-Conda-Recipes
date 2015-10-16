@@ -12,3 +12,8 @@ source:
 requirements:
   build: []
   run: []
+
+about:
+  summary: ExecDos plugin for NSIS
+  home: http://nsis.sourceforge.net/ExecDos_plug-in
+  license: zlib
