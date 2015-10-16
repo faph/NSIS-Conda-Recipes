@@ -1,0 +1,21 @@
+package:
+  name: nsis
+  version: 3.0b2
+
+build:
+  string: nsis_0
+
+source:
+  fn: nsis-3.0b2.zip
+  url: http://sourceforge.net/projects/nsis/files/NSIS%203%20Pre-release/3.0b2/nsis-3.0b2.zip
+  sha1: 1ddd8d1b52a50d0a2754d4636c342fca3d97e050
+  md5: 81dd20194bb6f6f266300ab7045dc97d
+
+requirements:
+  build: []
+  run: []
+
+about:
+  summary: Nullsoft Scriptable Install System
+  home: http://sourceforge.net/projects/nsis
+  license: zlib
