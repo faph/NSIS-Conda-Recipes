@@ -1,0 +1,19 @@
+package:
+  name: registry
+  version: 4.1
+
+build:
+  string: nsis_0
+
+source:
+  fn: Registry.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/4/47/Registry.zip
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: Registry plugin for NSIS
+  home: http://nsis.sourceforge.net/Registry_plug-in
