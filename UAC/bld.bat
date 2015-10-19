@@ -1,7 +1,7 @@
 robocopy . "%PREFIX%\Include" *.nsh
 if errorlevel 8 exit 1
 
-robocopy . "%PREFIX%\Examples\UAC" *.nsi
+robocopy . "%PREFIX%\Examples\UAC" *.nsi History.txt
 if errorlevel 8 exit 1
 
 robocopy Plugins "%PREFIX%\Plugins" /S
