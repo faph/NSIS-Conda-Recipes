@@ -1,0 +1,19 @@
+package:
+  name: nsarray
+  version: 1.1.1.7
+
+build:
+  string: nsis_0
+
+source:
+  fn: NsArray.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/9/97/NsArray.zip
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: nsArray plugin for NSIS
+  home: http://nsis.sourceforge.net/Arrays_in_NSIS
