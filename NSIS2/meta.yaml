@@ -1,0 +1,21 @@
+package:
+  name: nsis
+  version: 2.46
+
+build:
+  string: nsis_0
+
+source:
+  fn: nsis-2.46.zip
+  url: http://sourceforge.net/projects/nsis/files/NSIS%202/2.46/nsis-2.46.zip
+  sha1: adeff823a1f8af3c19783700a6b8d9054cf0f3c2
+  md5: d7e43beabc017a7d892a3d6663e988d4
+
+requirements:
+  build: []
+  run: []
+
+about:
+  summary: Nullsoft Scriptable Install System
+  home: http://sourceforge.net/projects/nsis
+  license: zlib
