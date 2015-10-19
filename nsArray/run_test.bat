@@ -1,5 +1,1 @@
-makensis "%PREFIX%\Examples\nsArray\nsArray.nsi"
-if errorlevel 1 exit 1
-
-makensis "%PREFIX%\Examples\nsArray\nsArrayHeader.nsi"
-if errorlevel 1 exit 1
+for %%f in ("%PREFIX%\Examples\nsArray\*.nsi") do "%PREFIX%\makensis" %%f & if errorlevel 1 exit 1
