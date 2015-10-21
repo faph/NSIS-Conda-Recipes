@@ -1,0 +1,21 @@
+package:
+  name: aero
+  version: 1.0.1.2
+
+build:
+  string: nsis_0
+
+source:
+  fn: Aero.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/8/84/Aero.zip
+  md5: 5f4d971e292ca61eeb5e8b4778f60e98
+  sha1: 60b1197b2310e7ce3f901bb9b05ce4007ec1c425
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: Aero plugin for NSIS
+  home: http://nsis.sourceforge.net/Aero_plug-in
