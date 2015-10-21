@@ -1,0 +1,25 @@
+package:
+  name: lockedlist
+  version: 3.0.0.4
+
+build:
+  string: nsis_0
+
+source:
+  fn: LockedList.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/d/d3/LockedList.zip
+  md5: 34977b8b8ce07e3ee18b6f5d9a8fca7a
+  sha1: a6c594c16fee06df073249584dee77604fa8c8c7
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+test:
+  requires:
+  - aero  # Some tests set up with aero plugin
+
+about:
+  summary: LockedList plugin for NSIS
+  home: http://nsis.sourceforge.net/LockedList_plug-in
