@@ -1,0 +1,21 @@
+package:
+  name: locate
+  version: "2.0"
+
+build:
+  string: nsis_0
+  script_env:
+   - RECIPE_DIR
+
+source:
+  fn: Locate.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/a/af/Locate.zip
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: Locate plugin for NSIS
+  home: http://nsis.sourceforge.net/Locate_plugin
