@@ -1,0 +1,18 @@
+package:
+  name: strcontains
+  version: 1.0
+
+build:
+  string: nsis_0
+
+source:
+  path: .
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: StrContains header file for NSIS
+  home: http://nsis.sourceforge.net/StrContains
