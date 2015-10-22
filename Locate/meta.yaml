@@ -4,8 +4,6 @@ package:
 
 build:
   string: nsis_0
-  script_env:
-   - RECIPE_DIR
 
 source:
   fn: Locate.zip
