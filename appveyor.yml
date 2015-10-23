@@ -1,5 +1,7 @@
 # Master branch
 -
+  configuration: build and deploy
+
   branches:
     only:
     - master
@@ -37,7 +39,9 @@
 
 # Other branches
 -
-  branches
+  configuration: build
+
+  branches:
     except:
     - master
 
