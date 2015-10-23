@@ -17,9 +17,7 @@ install:
   - powershell .\\continuous-integration\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
 
-build: false
-
-test_script:
+build_script:
   - powershell conda config --add channels https://conda.anaconda.org/nsis"
   - powershell conda build nsArray --quiet"
   # Move the conda package into the current directory, to register it
