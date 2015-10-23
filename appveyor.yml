@@ -1,34 +1,64 @@
-environment:
-  binstar_token:
-    secure: aE8S0M8ihg/xtnOgn8LIuDyGd/JI3v4sBQshdj6FL8VBOyVcqET4mOLCh3sKTtiP
+# Master branch
+-
+  branches:
+    only:
+    - master
 
-  matrix:
-    - PYTHON: "C:\\Python34_64"
-      PYTHON_VERSION: "3.4"
-      PYTHON_ARCH: "64"
+  environment:
+    binstar_token:
+      secure: aE8S0M8ihg/xtnOgn8LIuDyGd/JI3v4sBQshdj6FL8VBOyVcqET4mOLCh3sKTtiP
 
-branches:
-  only:
-  - master
+    matrix:
+      - PYTHON: "C:\\Python34_64"
+        PYTHON_VERSION: "3.4"
+        PYTHON_ARCH: "64"
 
-install:
-  # Install Miniconda
-  - powershell .\\continuous-integration\\appveyor\\install.ps1
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  install:
+    # Install Miniconda
+    - powershell .\\continuous-integration\\appveyor\\install.ps1
+    - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
 
-build_script:
-  - powershell conda config --add channels https://conda.anaconda.org/nsis"
-  - powershell conda build nsArray --quiet"
-  # Move the conda package into the current directory, to register it
-  # as an "artifact" for Appveyor.
-  - python continuous-integration\move-conda-package.py nsArray
+  build_script:
+    - powershell conda config --add channels https://conda.anaconda.org/nsis"
+    - powershell conda build nsArray --quiet"
+    # Move the conda package into the current directory, to register it
+    # as an "artifact" for Appveyor.
+    - python continuous-integration\move-conda-package.py nsArray
 
-artifacts:
-  # Archive the generated conda package in the ci.appveyor.com build report.
-  - path: '*.tar.bz2'
+  artifacts:
+    # Archive the generated conda package in the ci.appveyor.com build report.
+    - path: '*.tar.bz2'
 
-deploy_script:
-  # Upload built binaries to binstar.org. The globbing and handling of the
-  # exit-status code is tricky in cmd.exe or powershell, so we're just using
-  # a python script.
-  - python continuous-integration\binstar-push.py
+  deploy_script:
+    # Upload built binaries to binstar.org. The globbing and handling of the
+    # exit-status code is tricky in cmd.exe or powershell, so we're just using
+    # a python script.
+    - python continuous-integration\binstar-push.py
+
+# Other branches
+-
+  branches
+    except:
+    - master
+
+  environment:
+    matrix:
+      - PYTHON: "C:\\Python34_64"
+        PYTHON_VERSION: "3.4"
+        PYTHON_ARCH: "64"
+
+  install:
+    # Install Miniconda
+    - powershell .\\continuous-integration\\appveyor\\install.ps1
+    - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+
+  build_script:
+    - powershell conda config --add channels https://conda.anaconda.org/nsis"
+    - powershell conda build nsArray --quiet"
+    # Move the conda package into the current directory, to register it
+    # as an "artifact" for Appveyor.
+    - python continuous-integration\move-conda-package.py nsArray
+
+  artifacts:
+    # Archive the generated conda package in the ci.appveyor.com build report.
+    - path: '*.tar.bz2'
