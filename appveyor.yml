@@ -1,6 +1,6 @@
 environment:
   binstar_token:
-    secure: NS-270a5f81-2c89-421e-bde7-b962e36418ba
+    secure: aE8S0M8ihg/xtnOgn8LIuDyGd/JI3v4sBQshdj6FL8VBOyVcqET4mOLCh3sKTtiP
 
   matrix:
     - PYTHON: "C:\\Python34_64"
