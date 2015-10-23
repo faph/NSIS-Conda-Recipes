@@ -18,7 +18,7 @@
   install:
     # Install Miniconda
     - ps: .\\continuous-integration\\appveyor\\install.ps1
-    - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+    - ps: $env:Path = "$env:PYTHON;$env:PYTHON\\Scripts;$env:Path"
 
   build_script:
     - ps: conda config --add channels https://conda.anaconda.org/nsis"
