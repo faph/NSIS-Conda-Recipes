@@ -13,8 +13,8 @@
 
   install:
     - ps: ./install_conda
-    - ps: conda update --yes --quiet conda
-    - ps: conda install --yes --quiet conda-build anaconda-client
+    - ps: conda update --quiet conda
+    - ps: conda install --quiet conda-build anaconda-client
 
   build_script:
     - ps: ./build
@@ -35,8 +35,8 @@
 
   install:
     - ps: ./install_conda
-    - ps: conda update --yes --quiet conda
-    - ps: conda install --yes --quiet conda-build anaconda-client
+    - ps: conda update --quiet conda
+    - ps: conda install --quiet conda-build anaconda-client
 
   build_script:
     - ps: ./build
