@@ -40,9 +40,9 @@ function DownloadMiniconda {
 function InstallMiniconda {
     Write-Host "Installing Python..."
 
-    $filepath = DownloadMiniconda
-    $args = "/S /D=$env:PYTHON"
-    Start-Process -FilePath $filepath -ArgumentList $args -Wait -Passthru
+    $installer = DownloadMiniconda
+    $args = "/S", "/D=$env:PYTHON"
+    Start-Process -FilePath $installer -ArgumentList $args -Wait -Passthru
     if (Test-Path $env:PYTHON) {
         Write-Host "Python installation complete"
     } else {
@@ -51,17 +51,4 @@ function InstallMiniconda {
     }
 }
 
-
-function InstallCondaPackages ($python_home, $spec) {
-    $conda_path = $python_home + "\Scripts\conda.exe"
-    $args = "install --yes " + $spec
-    Write-Host ("conda " + $args)
-    Start-Process -FilePath "$conda_path" -ArgumentList $args -Wait -Passthru
-}
-
-function main () {
-    InstallMiniconda
-    InstallCondaPackages $env:PYTHON "conda-build jinja2 anaconda-client"
-}
-
-main
+InstallMiniconda
