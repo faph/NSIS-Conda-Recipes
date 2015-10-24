@@ -7,13 +7,12 @@
     - master
 
   environment:
+    PYTHON: "C:\\Python34_64"
+    PYTHON_VERSION: "3.4"
+    PYTHON_ARCH: "64"
+    CONDA_BLD_PATH: "C:\conda-bld"
     binstar_token:
       secure: aE8S0M8ihg/xtnOgn8LIuDyGd/JI3v4sBQshdj6FL8VBOyVcqET4mOLCh3sKTtiP
-
-    matrix:
-      - PYTHON: "C:\\Python34_64"
-        PYTHON_VERSION: "3.4"
-        PYTHON_ARCH: "64"
 
   install:
     # Install Miniconda
@@ -21,14 +20,10 @@
     - ps: $env:Path = "$env:PYTHON;$env:PYTHON\\Scripts;$env:Path"
 
   build_script:
-    - ps: conda config --add channels https://conda.anaconda.org/nsis
-    - ps: conda build nsArray --quiet
-    # Move the conda package into the current directory, to register it
-    # as an "artifact" for Appveyor.
-    - python continuous-integration\move-conda-package.py nsArray
+    - ps: ./build
 
   deploy_script:
-    - python continuous-integration\binstar-push.py
+    #- python continuous-integration\binstar-push.py
 
 # Other branches
 -
@@ -39,10 +34,10 @@
     - master
 
   environment:
-    matrix:
-      - PYTHON: "C:\\Python34_64"
-        PYTHON_VERSION: "3.4"
-        PYTHON_ARCH: "64"
+    PYTHON: "C:\\Python34_64"
+    PYTHON_VERSION: "3.4"
+    PYTHON_ARCH: "64"
+    CONDA_BLD_PATH: "C:\conda-bld"
 
   install:
     # Install Miniconda
@@ -50,8 +45,7 @@
     - ps: $env:Path = "$env:PYTHON;$env:PYTHON\\Scripts;$env:Path"
 
   build_script:
-    - ps: conda config --add channels https://conda.anaconda.org/nsis
-    - ps: conda build nsArray --quiet
+    - ps: ./build
     # Move the conda package into the current directory, to register it
     # as an "artifact" for Appveyor.
     - python continuous-integration\move-conda-package.py nsArray
