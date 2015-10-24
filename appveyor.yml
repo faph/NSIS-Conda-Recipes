@@ -14,7 +14,6 @@
 
   install:
     - ps: .\\continuous-integration\\appveyor\\install.ps1
-    - ps: $env:Path = "$env:PYTHON;$env:PYTHON\\Scripts;$env:Path"
     - ps: conda update --yes --quiet conda
     - ps: conda install --yes --quiet conda-build anaconda-client
 
@@ -38,7 +37,6 @@
 
   install:
     - ps: .\\continuous-integration\\appveyor\\install.ps1
-    - ps: $env:Path = "$env:PYTHON;$env:PYTHON\\Scripts;$env:Path"
     - ps: conda update --yes --quiet conda
     - ps: conda install --yes --quiet conda-build anaconda-client
 
