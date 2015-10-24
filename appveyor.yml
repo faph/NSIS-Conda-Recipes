@@ -23,7 +23,7 @@
     - ps: ./build
 
   deploy_script:
-    #- python continuous-integration\binstar-push.py
+    - ps: ./deploy
 
 # Other branches
 -
@@ -46,10 +46,7 @@
 
   build_script:
     - ps: ./build
-    # Move the conda package into the current directory, to register it
-    # as an "artifact" for Appveyor.
-    - python continuous-integration\move-conda-package.py nsArray
 
   artifacts:
     # Archive the generated conda package in the ci.appveyor.com build report.
-    - path: '*.tar.bz2'
+    - path: "%CONDA_BLD_PATH%\\win-64\\*.tar.bz2"
