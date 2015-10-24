@@ -18,6 +18,7 @@
     # Install Miniconda
     - ps: .\\continuous-integration\\appveyor\\install.ps1
     - ps: $env:Path = "$env:PYTHON;$env:PYTHON\\Scripts;$env:Path"
+    - ps: conda update conda --yes --quiet
 
   build_script:
     - ps: ./build

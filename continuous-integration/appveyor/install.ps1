@@ -43,29 +43,16 @@ function DownloadMiniconda ($python_version, $platform_suffix) {
 }
 
 
-function InstallMiniconda ($python_version, $architecture, $python_home) {
-    Write-Host "Installing Python" $python_version "for" $architecture "bit architecture to" $python_home
-    if (Test-Path $python_home) {
-        Write-Host $python_home "already exists, skipping."
-        return $false
-    }
-    if ($architecture -match "32") {
-        $platform_suffix = "x86"
-    } else {
-        $platform_suffix = "x86_64"
-    }
+function InstallMiniconda {
+    Write-Host "Installing Conda"
 
-    $filepath = DownloadMiniconda $python_version $platform_suffix
-    Write-Host "Installing" $filepath "to" $python_home
-    $install_log = $python_home + ".log"
-    $args = "/S /D=$python_home"
-    Write-Host $filepath $args
+    $filepath = DownloadMiniconda "3.4" "64"
+    $args = "/S /D=$env:PYTHON"
     Start-Process -FilePath $filepath -ArgumentList $args -Wait -Passthru
-    if (Test-Path $python_home) {
-        Write-Host "Python $python_version ($architecture) installation complete"
+    if (Test-Path $env:PYTHON) {
+        Write-Host "Python installation complete"
     } else {
-        Write-Host "Failed to install Python in $python_home"
-        Get-Content -Path $install_log
+        Write-Host "Failed to install Python in $env:PYTHON"
         Exit 1
     }
 }
@@ -88,8 +75,8 @@ function UpdateConda ($python_home) {
 
 
 function main () {
-    InstallMiniconda $env:PYTHON_VERSION $env:PYTHON_ARCH $env:PYTHON
-    UpdateConda $env:PYTHON
+    InstallMiniconda
+    #UpdateConda $env:PYTHON
     InstallCondaPackages $env:PYTHON "conda-build jinja2 anaconda-client"
 }
 
