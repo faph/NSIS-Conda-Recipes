@@ -10,7 +10,7 @@
     PYTHON: "C:\\Python34_64"
     PYTHON_VERSION: "3.4"
     PYTHON_ARCH: "64"
-    CONDA_BLD_PATH: "C:\conda-bld"
+    CONDA_BLD_PATH: "C:\\conda-bld"
     binstar_token:
       secure: aE8S0M8ihg/xtnOgn8LIuDyGd/JI3v4sBQshdj6FL8VBOyVcqET4mOLCh3sKTtiP
 
@@ -37,7 +37,7 @@
     PYTHON: "C:\\Python34_64"
     PYTHON_VERSION: "3.4"
     PYTHON_ARCH: "64"
-    CONDA_BLD_PATH: "C:\conda-bld"
+    CONDA_BLD_PATH: "C:\\conda-bld"
 
   install:
     # Install Miniconda
