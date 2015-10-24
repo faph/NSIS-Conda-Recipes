@@ -7,15 +7,12 @@
     - master
 
   environment:
-    PYTHON: "C:\\Python34_64"
-    PYTHON_VERSION: "3.4"
-    PYTHON_ARCH: "64"
+    PYTHON: "C:\\Python"
     CONDA_BLD_PATH: "C:\\conda-bld"
     binstar_token:
       secure: aE8S0M8ihg/xtnOgn8LIuDyGd/JI3v4sBQshdj6FL8VBOyVcqET4mOLCh3sKTtiP
 
   install:
-    # Install Miniconda
     - ps: .\\continuous-integration\\appveyor\\install.ps1
     - ps: $env:Path = "$env:PYTHON;$env:PYTHON\\Scripts;$env:Path"
     - ps: conda update --yes --quiet conda
@@ -36,15 +33,14 @@
     - master
 
   environment:
-    PYTHON: "C:\\Python34_64"
-    PYTHON_VERSION: "3.4"
-    PYTHON_ARCH: "64"
+    PYTHON: "C:\\Python"
     CONDA_BLD_PATH: "C:\\conda-bld"
 
   install:
-    # Install Miniconda
     - ps: .\\continuous-integration\\appveyor\\install.ps1
     - ps: $env:Path = "$env:PYTHON;$env:PYTHON\\Scripts;$env:Path"
+    - ps: conda update --yes --quiet conda
+    - ps: conda install --yes --quiet conda-build anaconda-client
 
   build_script:
     - ps: ./build
