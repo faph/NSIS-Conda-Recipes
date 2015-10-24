@@ -41,7 +41,7 @@ function InstallMiniconda {
     Write-Host "Installing Python..."
 
     $installer = DownloadMiniconda
-    $args = "/S", "/AddToPath=1", "/RegisterPython=1", "/D=$env:PYTHON"
+    $args = "/S", "/InstallationType=JustMe", "/AddToPath=1", "/RegisterPython=1", "/D=$env:PYTHON"
     Start-Process -FilePath $installer -ArgumentList $args -Wait -Passthru
     if (Test-Path $env:PYTHON) {
         Write-Host "Python installation complete"
