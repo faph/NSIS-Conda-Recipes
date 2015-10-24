@@ -38,11 +38,11 @@ function DownloadMiniconda {
 
 
 function InstallMiniconda {
-    Write-Host "Installing Python..."
-
     $installer = DownloadMiniconda
     $destination = "$env:localappdata\Python"
     $args = "/S", "/D=$destination"
+
+    Write-Host "Installing Python..."
     Start-Process -FilePath $installer -ArgumentList $args -Wait -Passthru
 
     if (Test-Path $destination) {

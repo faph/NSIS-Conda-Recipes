@@ -12,7 +12,7 @@
       secure: aE8S0M8ihg/xtnOgn8LIuDyGd/JI3v4sBQshdj6FL8VBOyVcqET4mOLCh3sKTtiP
 
   install:
-    - ps: .\\continuous-integration\\appveyor\\install.ps1
+    - ps: ./install_conda
     - ps: conda update --yes --quiet conda
     - ps: conda install --yes --quiet conda-build anaconda-client
 
@@ -34,7 +34,7 @@
     CONDA_BLD_PATH: "C:\\conda-bld"
 
   install:
-    - ps: .\\continuous-integration\\appveyor\\install.ps1
+    - ps: ./install_conda
     - ps: conda update --yes --quiet conda
     - ps: conda install --yes --quiet conda-build anaconda-client
 
