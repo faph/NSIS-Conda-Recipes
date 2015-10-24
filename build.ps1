@@ -27,7 +27,11 @@ foreach ($recipe in $recipes) {
 	if (-not (OnAnaconda $pkg_name $channel)) {
 		"Building package $pkg_name..."
 		conda build $recipe --quiet
-		Add-AppveyorMessage -Message "Built package $pkg_name" -Category Information
+		If ($lastexitcode -eq 0) {
+			Add-AppveyorMessage -Message "Built package $recipe" -Category Information
+		} Else {
+			Add-AppveyorMessage -Message "Failed building package $recipe" -Category Error
+		}
 	} else {
 		"Package $pkg_name already on anaconda.org. Skip building."
 	}
