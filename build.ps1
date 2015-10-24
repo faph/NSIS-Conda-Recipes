@@ -20,13 +20,14 @@ Function OnAnaconda {
 $channel = "https://conda.anaconda.org/nsis"
 conda config --add channels $channel
 
-$pkgs = Get-ChildItem -exclude 'continuous-integration' | ?{ $_.PSIsContainer }
-foreach ($pkg in $pkgs) {
-	$pkg_name = conda build $pkg --output | Split-Path -Leaf
+$recipes = Get-ChildItem -exclude _* | ?{ $_.PSIsContainer }
+
+foreach ($recipe in $recipes) {
+	$pkg_name = conda build $recipe --output | Split-Path -Leaf
 	if (-not (OnAnaconda $pkg_name $channel)) {
-		Write-Host "Building package $pkg_name..."
-		conda build $pkg --quiet
+		"Building package $pkg_name..."
+		conda build $recipe --quiet
 	} else {
-		Write-Host "Package $pkg_name already on anaconda.org. Skip building."
+		"Package $pkg_name already on anaconda.org. Skip building."
 	}
 }
