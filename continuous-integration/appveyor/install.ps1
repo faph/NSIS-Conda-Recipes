@@ -5,7 +5,7 @@
 $MINICONDA_URL = "http://repo.continuum.io/miniconda"
 
 
-function DownloadMiniconda ($python_version, $platform_suffix) {
+function DownloadMiniconda {
     $webclient = New-Object System.Net.WebClient
 
     $filename = "Miniconda3-latest-Windows-x86_64.exe"
@@ -13,12 +13,12 @@ function DownloadMiniconda ($python_version, $platform_suffix) {
 
     $filepath = "$env:temp\$filename"
     if (Test-Path $filename) {
-        Write-Host "Reusing" $filepath
+        Write-Host "Reusing $filepath..."
         return $filepath
     }
 
     # Download and retry up to 3 times in case of network transient errors.
-    Write-Host "Downloading" $filename "from" $url
+    Write-Host "Downloading $url..."
     $retry_attempts = 2
     for($i=0; $i -lt $retry_attempts; $i++){
         try {
@@ -29,9 +29,7 @@ function DownloadMiniconda ($python_version, $platform_suffix) {
             Start-Sleep 1
         }
    }
-   if (Test-Path $filepath) {
-       Write-Host "File saved at" $filepath
-   } else {
+   if (-not (Test-Path $filepath)) {
        # Retry once to get the error message if any at the last try
        $webclient.DownloadFile($url, $filepath)
    }
@@ -40,9 +38,9 @@ function DownloadMiniconda ($python_version, $platform_suffix) {
 
 
 function InstallMiniconda {
-    Write-Host "Installing Conda"
+    Write-Host "Installing Python..."
 
-    $filepath = DownloadMiniconda "3.4" "64"
+    $filepath = DownloadMiniconda
     $args = "/S /D=$env:PYTHON"
     Start-Process -FilePath $filepath -ArgumentList $args -Wait -Passthru
     if (Test-Path $env:PYTHON) {
@@ -61,18 +59,8 @@ function InstallCondaPackages ($python_home, $spec) {
     Start-Process -FilePath "$conda_path" -ArgumentList $args -Wait -Passthru
 }
 
-function UpdateConda ($python_home) {
-    $conda_path = $python_home + "\Scripts\conda.exe"
-    Write-Host "Updating conda..."
-    $args = "update --yes conda"
-    Write-Host $conda_path $args
-    Start-Process -FilePath "$conda_path" -ArgumentList $args -Wait -Passthru
-}
-
-
 function main () {
     InstallMiniconda
-    #UpdateConda $env:PYTHON
     InstallCondaPackages $env:PYTHON "conda-build jinja2 anaconda-client"
 }
 
