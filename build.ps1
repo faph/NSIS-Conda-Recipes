@@ -22,7 +22,7 @@ conda config --add channels $channel
 
 $pkgs = Get-ChildItem -exclude 'continuous-integration' | ?{ $_.PSIsContainer }
 foreach ($pkg in $pkgs) {
-	$pkg_name = (conda build $pkg --output | Get-ChildItem).Name
+	$pkg_name = conda build $pkg --output | Split-Path -Leaf
 	if (-not (OnAnaconda $pkg_name $channel)) {
 		Write-Host "Building package $pkg_name..."
 		conda build $pkg --quiet
