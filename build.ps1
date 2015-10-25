@@ -17,9 +17,10 @@ Function OnAnaconda {
 	return $result
 }
 
-$channel = "https://conda.anaconda.org/nsis"
+$channel = "https://conda.anaconda.org/t/$env:binstar_token/nsis"
 conda config --add channels $channel
 
+# Exclude folders starting with `_`
 $recipes = Get-ChildItem -exclude _* | ?{ $_.PSIsContainer }
 
 foreach ($recipe in $recipes) {
