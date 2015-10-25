@@ -17,7 +17,7 @@ Function OnAnaconda {
 	return $result
 }
 
-$channel = "https://conda.anaconda.org/t/$env:binstar_token/nsis"
+$channel = "https://conda.anaconda.org/nsis"
 conda config --add channels $channel
 
 # Exclude folders starting with `_`
