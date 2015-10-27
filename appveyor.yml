@@ -1,6 +1,6 @@
 # Master branch
 -
-  configuration: build and deploy
+  configuration: Build and deploy
 
   branches:
     only:
@@ -12,19 +12,19 @@
       secure: aE8S0M8ihg/xtnOgn8LIuDyGd/JI3v4sBQshdj6FL8VBOyVcqET4mOLCh3sKTtiP
 
   install:
-    - ps: ./install_conda
-    - ps: conda update --quiet conda
-    - ps: conda install --quiet conda-build anaconda-client
+  - ps: ./install_conda
+  - ps: conda update --quiet conda
+  - ps: conda install --quiet conda-build anaconda-client
 
   build_script:
-    - ps: ./build
+  - ps: ./build
 
   deploy_script:
-    - ps: ./deploy
+  - ps: ./deploy
 
 # Other branches
 -
-  configuration: build
+  configuration: Build
 
   branches:
     except:
@@ -34,13 +34,13 @@
     CONDA_BLD_PATH: "C:\\conda-bld"
 
   install:
-    - ps: ./install_conda
-    - ps: conda update --quiet conda
-    - ps: conda install --quiet conda-build anaconda-client
+  - ps: ./install_conda
+  - ps: conda update --quiet conda
+  - ps: conda install --quiet conda-build anaconda-client
 
   build_script:
-    - ps: ./build
+  - ps: ./build
 
   artifacts:
     # Archive the generated conda package in the ci.appveyor.com build report.
-    - path: "%CONDA_BLD_PATH%\\win-64\\*.tar.bz2"
+  - path: "%CONDA_BLD_PATH%\\win-64\\*.tar.bz2"
