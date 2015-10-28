@@ -25,7 +25,7 @@ $recipes = Get-ChildItem -exclude _* | ?{ $_.PSIsContainer }
 
 foreach ($recipe in $recipes) {
 	$pkg_name = conda build $recipe --output | Split-Path -Leaf
-	$pkg_basename = $pkg_name.split('.')[0]
+	$pkg_basename = $pkg_name.TrimEnd('.tar.bz2')
 	if (-not (OnAnaconda $pkg_name $channel)) {
 		"Building package $pkg_basename..."
 		conda build $recipe --quiet
