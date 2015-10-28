@@ -25,15 +25,16 @@ $recipes = Get-ChildItem -exclude _* | ?{ $_.PSIsContainer }
 
 foreach ($recipe in $recipes) {
 	$pkg_name = conda build $recipe --output | Split-Path -Leaf
+	$pkg_basename = $pkg_name.split('.')[0]
 	if (-not (OnAnaconda $pkg_name $channel)) {
-		"Building package $pkg_name..."
+		"Building package $pkg_basename..."
 		conda build $recipe --quiet
 		If ($lastexitcode -eq 0) {
-			Add-AppveyorMessage -Message "Built package $($recipe.Name)" -Category Information
+			Add-AppveyorMessage -Message "Built package $pkg_basename" -Category Information
 		} Else {
-			Add-AppveyorMessage -Message "Failed building package $($recipe.Name)" -Category Error
+			Add-AppveyorMessage -Message "Failed building package $pkg_basename" -Category Error
 		}
 	} else {
-		"Package $pkg_name already on anaconda.org. Skip building."
+		"Package $pkg_basename already on anaconda.org. Skip building."
 	}
 }
