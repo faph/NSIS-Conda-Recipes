@@ -1,0 +1,18 @@
+package:
+  name: strstr
+  version: 2.1.0
+
+build:
+  string: nsis_0
+
+source:
+  path: .
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: StrStr header file for NSIS
+  home: http://nsis.sourceforge.net/StrContains
