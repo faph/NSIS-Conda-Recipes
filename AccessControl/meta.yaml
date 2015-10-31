@@ -1,0 +1,21 @@
+package:
+  name: accesscontrol
+  version: 1.0.8.1
+
+build:
+  string: nsis_0
+
+source:
+  fn: AccessControl.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/4/4a/AccessControl.zip
+  md5: 15e66e1724bc5db93a6ac3958866f9cb
+  sha1: e8c955b6a7d12b1d23578089e0f8ea421cf721a4
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: AccessControl plugin for NSIS
+  home: http://nsis.sourceforge.net/AccessControl_plug-in
