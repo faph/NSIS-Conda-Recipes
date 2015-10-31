@@ -8,6 +8,8 @@ build:
 source:
   fn: Locate.zip
   url: http://nsis.sourceforge.net/mediawiki/images/a/af/Locate.zip
+  md5: 80fd1fade3a8e17600a00d771b6d37cd
+  sha1: b5a7bb864ec013e282a482a848399b62e519c986
 
 requirements:
   build: []

@@ -8,6 +8,8 @@ build:
 source:
   fn: Registry.zip
   url: http://nsis.sourceforge.net/mediawiki/images/4/47/Registry.zip
+  md5: c2e09b276963917156894c5fb53d6282
+  sha1: f1db0c0888bdb88d954e406a9a411ee48c0480ee
 
 requirements:
   build: []

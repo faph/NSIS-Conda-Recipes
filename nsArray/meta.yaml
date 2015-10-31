@@ -8,6 +8,8 @@ build:
 source:
   fn: NsArray.zip
   url: http://nsis.sourceforge.net/mediawiki/images/9/97/NsArray.zip
+  md5: 7bb3fe8ad85d42656236500fd0294f26
+  sha1: 729e35131531e919a1fabf2d8c0d7e11e8ac8b1b
 
 requirements:
   build: []

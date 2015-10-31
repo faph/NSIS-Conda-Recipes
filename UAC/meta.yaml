@@ -8,6 +8,8 @@ build:
 source:
   fn: UAC.zip
   url: http://nsis.sourceforge.net/mediawiki/images/8/8f/UAC.zip
+  md5: a89146ef5d037da43e16bfb571407827
+  sha1: 9a0135cf150294a2c9e4296183fadb2b73d054ec
 
 requirements:
   build: []

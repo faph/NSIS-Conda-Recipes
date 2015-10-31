@@ -8,6 +8,8 @@ build:
 source:
   fn: Inetc.zip
   url: http://nsis.sourceforge.net/mediawiki/images/c/c9/Inetc.zip
+  md5: 1de732b813d2b45992198b913402210e
+  sha1: f76ae89373216e23f5ef8015709fbc798db33e6d
 
 requirements:
   build: []

@@ -8,6 +8,8 @@ build:
 source:
   fn: ExecDos.zip
   url: http://nsis.sourceforge.net/mediawiki/images/0/0f/ExecDos.zip
+  md5: 5d17ef7ebf9112d9fa9fddad615d9816
+  sha1: 022f1b70e99349e522e98da6fb4ec9efb0089fc6
 
 requirements:
   build: []
