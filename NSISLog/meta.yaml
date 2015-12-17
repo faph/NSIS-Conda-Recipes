@@ -1,0 +1,21 @@
+package:
+  name: nsislog
+  version: 1.0.0.0
+
+build:
+  string: nsis_0
+
+source:
+  fn: Nsislog.zip
+  url: http://nsis.sourceforge.net/mediawiki/images/7/76/Nsislog.zip
+  md5: b0dbee59ab778c7acf464f16d081c108
+  sha1: d2ea6c2111ebb63bc89c4ae5868c02e04a59c7ed
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: NSISLog plugin for NSIS
+  home: http://nsis.sourceforge.net/NSISLog_plug-in
