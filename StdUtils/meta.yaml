@@ -1,0 +1,22 @@
+package:
+  name: stdutils
+  version: 1.9
+
+build:
+  string: nsis_0
+
+source:
+  fn: StdUtils.2015-11-16.zip
+  url: https://github.com/lordmulder/stdutils/releases/download/1.09/StdUtils.2015-11-16.zip
+  md5: dc522e814002b99e3e070ef06adcaee8
+  sha1: 276f7c8cd5ea1c510954943f55d0e46ccc5f0af0
+
+requirements:
+  build: []
+  run:
+  - nsis
+
+about:
+  summary: StdUtils plugin for NSIS
+  home: https://github.com/lordmulder/stdutils
+  license: LGPL
